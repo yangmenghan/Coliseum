@@ -2,8 +2,9 @@ package com.windrose.coliseum.ludicoliseum.core
 
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.entity.Game
+import javax.inject.Inject
 
-class NextTurnInteractor(private val gameRepository: GameRepository) {
+class NextTurnInteractor @Inject constructor(private val gameRepository: GameRepository) {
 
     fun nextTurn() {
         val game = gameRepository.getCurrentGame()

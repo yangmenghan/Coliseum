@@ -2,8 +2,9 @@ package com.windrose.coliseum.ludicoliseum.data.game
 
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.entity.Game
+import javax.inject.Inject
 
-class SimpleGameRepositoryImpl : GameRepository {
+class SimpleGameRepositoryImpl @Inject constructor() : GameRepository {
 
     private var game = Game(listOf())
 
