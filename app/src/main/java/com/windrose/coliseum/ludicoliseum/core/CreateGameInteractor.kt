@@ -6,7 +6,7 @@ import com.windrose.coliseum.ludicoliseum.entity.Player
 
 class CreateGameInteractor {
 
-    fun create(playerNumber : Int): Game {
+    fun create(playerNumber: Int): Game {
         return Game((0 until playerNumber).map { generateRandomPlayer(it) })
     }
 
