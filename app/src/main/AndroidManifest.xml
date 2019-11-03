@@ -10,7 +10,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
-        android:name=".game.GameActivity"
+        android:name="com.windrose.coliseum.ludicoliseum.view.game.GameActivity"
         android:label="@string/title_activity_game"
         android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>

@@ -1,4 +1,4 @@
-package com.windrose.coliseum.ludicoliseum.game
+package com.windrose.coliseum.ludicoliseum.view.game
 
 interface GameContract {
     interface View{

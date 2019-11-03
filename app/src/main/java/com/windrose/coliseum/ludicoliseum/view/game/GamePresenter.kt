@@ -1,4 +1,4 @@
-package com.windrose.coliseum.ludicoliseum.game
+package com.windrose.coliseum.ludicoliseum.view.game
 
 class GamePresenter : GameContract.Presenter{
 
