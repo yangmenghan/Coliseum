@@ -5,6 +5,6 @@ import com.windrose.coliseum.ludicoliseum.entity.Game
 interface GameRepository {
     fun setCurrentGame(game: Game)
     fun getCurrentGame(): Game
-    fun setCurrentPlayer(nexTurn: Int)
+    fun setCurrentPlayer(currentPlayer: Int)
     fun setPlayerAlive(alive: Boolean, index: Int)
 }
