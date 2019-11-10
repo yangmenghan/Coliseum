@@ -5,6 +5,7 @@ import android.app.Application
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.data.game.SimpleGameRepositoryImpl
 import com.windrose.coliseum.ludicoliseum.view.ColiseumApplication
+import com.windrose.coliseum.ludicoliseum.view.start.di.StartGameModule
 import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
@@ -13,7 +14,10 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 
 
-@Component(modules = [AndroidInjectionModule::class, AppModule::class, ActivityBindingModule::class])
+@Component(modules = [AndroidInjectionModule::class,
+    AppModule::class,
+    StartGameModule::class,
+    ActivityBindingModule::class])
 interface ApplicationComponent : AndroidInjector<Activity> {
 
     @Component.Builder

@@ -2,4 +2,7 @@
   <string name="app_name">LudiColiseum</string>
   <string name="action_settings">Settings</string>
   <string name="title_activity_game">GameActivity</string>
+    <string name="start_game_create">Start Game</string>
+  <string name="start_game_player_numbers_hint">Players number</string>
+  <string name="start_game_players_number_error">Player numbers should be an integer greater than 0</string>
 </resources>
