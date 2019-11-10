@@ -8,10 +8,14 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.windrose.coliseum.ludicoliseum.R
 
-class PlayerView(context: Context, attr: AttributeSet?, defStyle: Int) : ConstraintLayout(context, attr, defStyle) {
+class PlayerView @JvmOverloads constructor(
+        context: Context,
+        attr: AttributeSet? = null,
+        defStyle: Int = 0
+) : ConstraintLayout(context, attr, defStyle) {
 
     interface Listener {
-        fun onSwitchChange(isChecked: Boolean)
+        fun onAliveSwitchChange(isChecked: Boolean, model: PlayerViewUiModel)
     }
 
     init {
@@ -22,7 +26,7 @@ class PlayerView(context: Context, attr: AttributeSet?, defStyle: Int) : Constra
     private val characterNameView: TextView = findViewById(R.id.characterName)
     private val characterOriginView: TextView = findViewById(R.id.characterOrigin)
     private val aliveSwitch: Switch = findViewById(R.id.aliveSwitch)
-    private var listener: Listener? = null
+    var listener: Listener? = null
 
     fun showContent(model: PlayerViewUiModel) = with(model) {
         indexTextView.text = "#$playerIndex"
@@ -30,12 +34,12 @@ class PlayerView(context: Context, attr: AttributeSet?, defStyle: Int) : Constra
         characterOriginView.text = characterOrigin
         aliveSwitch.isChecked = isAlive
         aliveSwitch.text = aliveText
-        aliveSwitch.setOnCheckedChangeListener { _, isChecked -> listener?.onSwitchChange(isChecked) }
+        aliveSwitch.setOnCheckedChangeListener { _, isChecked -> listener?.onAliveSwitchChange(isChecked, model) }
     }
 }
 
 data class PlayerViewUiModel(
-        val playerIndex: String,
+        val playerIndex: Int,
         val characterName: String,
         val characterOrigin: String,
         val aliveText: String,
