@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.Switch
 import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.windrose.coliseum.ludicoliseum.R
 
@@ -33,7 +34,7 @@ class PlayerView @JvmOverloads constructor(
         characterNameView.text = characterName
         characterOriginView.text = characterOrigin
         aliveSwitch.isChecked = isAlive
-        aliveSwitch.text = aliveText
+        aliveSwitch.text = context.getString(aliveText)
         aliveSwitch.setOnCheckedChangeListener { _, isChecked -> listener?.onAliveSwitchChange(isChecked, model) }
     }
 }
@@ -41,7 +42,8 @@ class PlayerView @JvmOverloads constructor(
 data class PlayerViewUiModel(
         val playerIndex: Int,
         val characterName: String,
-        val characterOrigin: String,
-        val aliveText: String,
-        val isAlive: Boolean = true
+        val characterOrigin: String?,
+        @StringRes val aliveText: Int,
+        val isAlive: Boolean = true,
+        val isHighLighted: Boolean
 )

@@ -35,6 +35,7 @@ class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
 
     override fun displayNewGame(model: GameUiModel) {
         playersAdapter.players = model.players
+        playersListView.scrollToPosition(model.currentPlayer)
     }
 
     override fun showError(errorTextId: Int) {

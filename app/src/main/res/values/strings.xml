@@ -6,4 +6,6 @@
   <string name="start_game_player_numbers_hint">Players number</string>
   <string name="start_game_players_number_error">Player numbers should be an integer greater than 0</string>
     <string name="game_next_turn">Next Turn</string>
+    <string name="game_player_alive">Alive</string>
+  <string name="game_player_dead">Dead</string>
 </resources>
