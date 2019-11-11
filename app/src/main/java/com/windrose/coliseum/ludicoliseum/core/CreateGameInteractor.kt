@@ -9,7 +9,7 @@ import javax.inject.Inject
 class CreateGameInteractor @Inject constructor(private val gameRepository: GameRepository) {
 
     fun create(playerNumber: Int) {
-        val game =  Game((0 until playerNumber).map { generateRandomPlayer(it) })
+        val game = Game((0 until playerNumber).map { generateRandomPlayer(it) })
         gameRepository.setCurrentGame(game)
     }
 

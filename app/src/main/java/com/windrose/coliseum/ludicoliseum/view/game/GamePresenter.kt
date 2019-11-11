@@ -46,8 +46,8 @@ class GameUiModelMapper @Inject constructor() {
 
     private fun mapPlayer(index: Int, player: Player, currentPlayer: Int) = PlayerViewUiModel(
             playerIndex = index,
-            characterName = player.character.name,
-            characterOrigin = player.character.origin,
+            characterName = player.role.name,
+            characterOrigin = player.role.origin,
             aliveText = getAliveText(player.isAlive),
             isAlive = player.isAlive,
             isHighLighted = currentPlayer == index

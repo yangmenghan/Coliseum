@@ -46,7 +46,7 @@ class CreateGameInteractorTest {
     fun players_have_distinct_character() {
         val slot = slot<Game>()
         every { gameRepository.setCurrentGame(capture(slot)) } answers {
-            assertEquals(slot.captured.players.distinctBy { it.character }.size, PLAYER_NUMBER)
+            assertEquals(slot.captured.players.distinctBy { it.role }.size, PLAYER_NUMBER)
         }
         createGame.create(PLAYER_NUMBER)
     }

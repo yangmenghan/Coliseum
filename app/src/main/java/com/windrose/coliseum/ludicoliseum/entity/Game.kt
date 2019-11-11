@@ -9,4 +9,4 @@ data class Game(val players: List<Player>, val currentPlayer: Int = 0){
     }
 }
 
-data class Player(val character: Role, val isAlive: Boolean = true)
+data class Player(val role: Role, val isAlive: Boolean = true)
