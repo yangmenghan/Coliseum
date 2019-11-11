@@ -33,6 +33,7 @@ interface AppModule {
     @Binds
     fun application(app: ColiseumApplication): Application
 
+    @Singleton
     @Binds
     fun bindGameRepository(gameRepositoryImpl: SimpleGameRepositoryImpl): GameRepository
 }
