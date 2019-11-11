@@ -38,7 +38,7 @@ class GamePresenter @Inject constructor(
 
 }
 
-class GameUiModelMapper {
+class GameUiModelMapper @Inject constructor() {
     fun map(game: Game): GameUiModel = GameUiModel(
             game.players.mapIndexed { i, it -> mapPlayer(i, it, game.currentPlayer) },
             game.currentPlayer

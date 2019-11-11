@@ -1,38 +1,37 @@
 package com.windrose.coliseum.ludicoliseum.di
 
-import android.app.Activity
 import android.app.Application
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.data.game.SimpleGameRepositoryImpl
 import com.windrose.coliseum.ludicoliseum.view.ColiseumApplication
+import com.windrose.coliseum.ludicoliseum.view.game.di.GameModule
 import com.windrose.coliseum.ludicoliseum.view.start.di.StartGameModule
 import dagger.Binds
-import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import javax.inject.Singleton
 
 
-@Component(modules = [AndroidInjectionModule::class,
+@Singleton
+@Component(modules = [
+    AndroidInjectionModule::class,
     AppModule::class,
     StartGameModule::class,
+    GameModule::class,
     ActivityBindingModule::class])
-interface ApplicationComponent : AndroidInjector<Activity> {
+interface ApplicationComponent : AndroidInjector<ColiseumApplication> {
 
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        fun application(application: Application): Builder
-
-        fun build(): ApplicationComponent
-    }
-
-    fun inject(app: ColiseumApplication)
+    @Component.Factory
+    interface Builder : AndroidInjector.Factory<ColiseumApplication>
 }
 
 @Module
 interface AppModule {
+
+    @Binds
+    fun application(app: ColiseumApplication): Application
 
     @Binds
     fun bindGameRepository(gameRepositoryImpl: SimpleGameRepositoryImpl): GameRepository

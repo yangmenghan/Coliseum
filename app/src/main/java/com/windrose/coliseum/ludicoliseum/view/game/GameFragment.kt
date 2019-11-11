@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.windrose.coliseum.ludicoliseum.R
 import com.windrose.coliseum.ludicoliseum.R.layout
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerView
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerViewUiModel
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
+class GameFragment : DaggerFragment(), GameContract.View, PlayerView.Listener {
     @Inject
     lateinit var presenter: GameContract.Presenter
 

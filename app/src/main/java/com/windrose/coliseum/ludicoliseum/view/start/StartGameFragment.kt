@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.fragment.app.Fragment
 import com.windrose.coliseum.ludicoliseum.R
 import com.windrose.coliseum.ludicoliseum.view.game.GameFragment
 import com.windrose.coliseum.ludicoliseum.view.utils.routeToFragment
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class StartGameFragment : Fragment(), StartGameContract.View {
+class StartGameFragment : DaggerFragment(), StartGameContract.View {
 
     @Inject
     lateinit var presenter: StartGameContract.Presenter
@@ -21,7 +21,7 @@ class StartGameFragment : Fragment(), StartGameContract.View {
     private lateinit var createGameButton: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_start_game, container).apply {
+        return inflater.inflate(R.layout.fragment_start_game, container, false).apply {
             playersNumberInput = findViewById(R.id.playersNumberInput)
             createGameButton = findViewById(R.id.createGameButton)
             createGameButton.setOnClickListener { presenter.onCreateGame(playersNumberInput.text.toString().toIntOrNull()) }

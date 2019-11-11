@@ -7,14 +7,7 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <fragment
-            android:name="com.windrose.coliseum.ludicoliseum.view.start.StartGameFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/fragment_start_game" />
-
-    </FrameLayout>
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_start_game" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
