@@ -3,6 +3,7 @@ package com.windrose.coliseum.ludicoliseum.view.utils
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
 import androidx.annotation.StringRes
@@ -21,6 +22,7 @@ class PlayerView @JvmOverloads constructor(
 
     init {
         View.inflate(context, R.layout.view_player, this)
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     private val indexTextView: TextView = findViewById(R.id.index)
