@@ -34,8 +34,10 @@ class GameFragment : DaggerFragment(), GameContract.View, PlayerView.Listener {
     }
 
     override fun displayNewGame(model: GameUiModel) {
-        playersAdapter.players = model.players
         playersListView.scrollToPosition(model.currentPlayer)
+        playersListView.post {
+            playersAdapter.players = model.players
+        }
     }
 
     override fun showError(errorTextId: Int) {
@@ -43,7 +45,7 @@ class GameFragment : DaggerFragment(), GameContract.View, PlayerView.Listener {
     }
 
     override fun onAliveSwitchChange(isChecked: Boolean, model: PlayerViewUiModel) =
-            presenter.onCharacterAliveChanged(model.playerIndex, isChecked)
+        presenter.onCharacterAliveChanged(model.playerIndex, isChecked)
 
     companion object {
         fun newInstance() = GameFragment()
