@@ -2,11 +2,17 @@ package com.windrose.coliseum.dataparser
 
 import com.windrose.coliseum.dataparser.models.Role
 import com.windrose.coliseum.dataparser.models.Tag
+import java.io.BufferedReader
 import java.io.File
+import java.io.InputStream
+import java.io.InputStreamReader
 
 class CharacterDataParserImpl : CharacterDataParser {
-    override fun parseDataFile(file: File): List<Role>? =
+    override fun parseDataFile(file: File): List<Role> =
         file.readLines().mapNotNull { parseLine(it) }
+
+    override fun parseDataInputStream(stream: InputStream): List<Role> =
+        BufferedReader(InputStreamReader(stream)).lineSequence().mapNotNull { parseLine(it) }.toList()
 
     // ex of line :
     // 5;Bjorn;Bottero;Ewilan;Ewilan;0;Fantasy;Inconnu;
