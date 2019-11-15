@@ -8,7 +8,8 @@ class NextTurnInteractor @Inject constructor(private val gameRepository: GameRep
 
     fun nextTurn() {
         val game = gameRepository.getCurrentGame()
-        val nextTurn = getNextAlivePlayerIndex(game)
+        val nextTurn =
+            game.currentPlayer.takeIf { it == Game.CURRENT_PLAYER_AT_GAME_END } ?: getNextAlivePlayerIndex(game)
         gameRepository.setCurrentPlayer(nextTurn)
     }
 
