@@ -2,12 +2,11 @@ package com.windrose.coliseum.dataparser.models
 
 data class Role(
     val name: String,
-    val tags: List<Tag>? = null,
-    val powerMultiplier: Int = 0,
-    val origin: String? = null,
+    val origin: String,
     val author: String? = null,
     val universe: String? = null,
-    val index: Int? = -1
+    val powerMultiplier: Int? = null,
+    val tags: List<Tag>? = null
 )
 
 data class Tag(val name: String)

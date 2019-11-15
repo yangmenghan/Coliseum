@@ -15,21 +15,20 @@ class CharacterDataParserImpl : CharacterDataParser {
         BufferedReader(InputStreamReader(stream)).lineSequence().mapNotNull { parseLine(it) }.toList()
 
     // ex of line :
-    // 5;Bjorn;Bottero;Ewilan;Ewilan;0;Fantasy;Inconnu;
+    // A Comme Association;Jasper;A Comme Association;L'Homme;0;Fantastique;default;
     // TODO : Set to private
     fun parseLine(line: String): Role? {
         val fields = line.split(FIELD_SEPARATOR)
-        return if (fields.size < 6) {
+        return if (fields.size < 2) {
             null
         } else {
             Role(
-                index = fields[0].toInt(),
+                origin = fields[0],
                 name = fields[1],
-                author = fields[2],
-                origin = fields[3],
-                universe = fields[4],
-                powerMultiplier = fields[5].toInt(),
-                tags = fields.subList(6, fields.size).map { Tag(it) }
+                universe = fields[2],
+                author = fields[3],
+                powerMultiplier = fields[4].toIntOrNull(),
+                tags = fields.subList(5, fields.size).map { Tag(it) }
             )
         }
     }
