@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import androidx.annotation.StringRes
@@ -18,6 +19,7 @@ class PlayerView @JvmOverloads constructor(
 
     interface Listener {
         fun onAliveSwitchChange(isChecked: Boolean, model: PlayerViewUiModel)
+        fun onRoleRefresh(model: PlayerViewUiModel)
     }
 
     init {
@@ -29,15 +31,17 @@ class PlayerView @JvmOverloads constructor(
     private val indexTextView: TextView = findViewById(R.id.index)
     private val characterNameView: TextView = findViewById(R.id.characterName)
     private val characterOriginView: TextView = findViewById(R.id.characterOrigin)
+    private val roleRefreshButton: ImageView = findViewById(R.id.role_refresh)
     private val aliveSwitch: Switch = findViewById(R.id.aliveSwitch)
     var listener: Listener? = null
 
     fun showContent(model: PlayerViewUiModel) = with(model) {
         uiModel = this
-        indexTextView.text = "#${playerIndex+1}"
+        indexTextView.text = "#${playerIndex + 1}"
         characterNameView.text = characterName
         characterOriginView.text = characterOrigin
         setState(isAlive, isHighLighted)
+        roleRefreshButton.setOnClickListener { listener?.onRoleRefresh(uiModel) }
         aliveSwitch.text = context.getString(aliveText)
         aliveSwitch.setOnCheckedChangeListener(null)
         if (aliveSwitch.isChecked != isAlive) aliveSwitch.isChecked = isAlive

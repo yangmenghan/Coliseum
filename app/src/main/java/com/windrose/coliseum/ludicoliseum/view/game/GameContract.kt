@@ -10,7 +10,8 @@ interface GameContract {
 
     interface Presenter {
         fun start()
-        fun onCharacterAliveChanged(playerIndex: Int, isAlive: Boolean)
         fun onNextTurn()
+        fun onCharacterAliveChanged(playerIndex: Int, isAlive: Boolean)
+        fun onCharacterRoleRefresh(playerIndex: Int)
     }
 }

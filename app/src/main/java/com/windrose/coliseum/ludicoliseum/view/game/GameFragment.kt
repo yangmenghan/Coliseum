@@ -47,6 +47,9 @@ class GameFragment : DaggerFragment(), GameContract.View, PlayerView.Listener {
     override fun onAliveSwitchChange(isChecked: Boolean, model: PlayerViewUiModel) =
         presenter.onCharacterAliveChanged(model.playerIndex, isChecked)
 
+    override fun onRoleRefresh(model: PlayerViewUiModel) =
+        presenter.onCharacterRoleRefresh(model.playerIndex)
+
     companion object {
         fun newInstance() = GameFragment()
     }
