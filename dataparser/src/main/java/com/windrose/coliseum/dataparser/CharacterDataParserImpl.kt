@@ -9,20 +9,24 @@ import java.io.InputStreamReader
 
 class CharacterDataParserImpl : CharacterDataParser {
     override fun parseDataFile(file: File): List<Role> =
-        file.readLines().mapNotNull { parseLine(it) }
+        file.readLines().mapIndexedNotNull { index, line -> parseLine(line, index) }
 
     override fun parseDataInputStream(stream: InputStream): List<Role> =
-        BufferedReader(InputStreamReader(stream)).lineSequence().mapNotNull { parseLine(it) }.toList()
+        BufferedReader(InputStreamReader(stream))
+            .lineSequence()
+            .mapIndexedNotNull { index, line -> parseLine(line, index) }
+            .toList()
 
     // ex of line :
     // A Comme Association;Jasper;A Comme Association;L'Homme;0;Fantastique;default;
     // TODO : Set to private
-    fun parseLine(line: String): Role? {
+    fun parseLine(line: String, index: Int): Role? {
         val fields = line.split(FIELD_SEPARATOR)
         return if (fields.size < 2) {
             null
         } else {
             Role(
+                id = index,
                 origin = fields[0],
                 name = fields[1],
                 universe = fields[2],

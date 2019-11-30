@@ -6,7 +6,8 @@ data class Role(
     val author: String? = null,
     val universe: String? = null,
     val powerMultiplier: Int? = null,
-    val tags: List<Tag>? = null
+    val tags: List<Tag>? = null,
+    val id: Int
 )
 
 data class Tag(val name: String)
