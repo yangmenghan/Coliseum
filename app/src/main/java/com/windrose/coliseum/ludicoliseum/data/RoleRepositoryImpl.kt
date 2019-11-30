@@ -3,7 +3,7 @@ package com.windrose.coliseum.ludicoliseum.data
 import android.content.Context
 import com.windrose.coliseum.dataparser.CharacterDataParserImpl
 import com.windrose.coliseum.dataparser.models.Role
-import java.util.*
+import java.util.Random
 import javax.inject.Inject
 
 //TODO : Context shouldn't be here
@@ -24,4 +24,9 @@ class RoleRepositoryImpl @Inject constructor(context: Context) : RoleRepository 
         }
         return indexSet.map { availableRoles[it] }.toList()
     }
+
+    override fun getAvailableRolesId(): List<Int> = availableRoles.map { it.id }
+
+    override fun getRole(roleId: Int): Role? =
+        availableRoles.find { it.id == roleId }
 }
