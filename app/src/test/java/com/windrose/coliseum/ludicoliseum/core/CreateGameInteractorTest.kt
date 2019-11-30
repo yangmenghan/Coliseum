@@ -64,7 +64,13 @@ class CreateGameInteractorTest {
     }
 
     @Test
-    fun roles_are_valid() = assertTrue(false)
+    fun roles_are_valid() {
+        val slot = slot<Game>()
+        every { gameRepository.setCurrentGame(capture(slot)) } answers {
+            assertEquals(slot.captured.players.size, slot.captured.players.distinct().size)
+        }
+        createGame.create(PLAYER_NUMBER)
+    }
 
     companion object {
         private const val PLAYER_NUMBER: Int = 5

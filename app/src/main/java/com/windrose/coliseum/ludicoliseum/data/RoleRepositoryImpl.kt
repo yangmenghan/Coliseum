@@ -3,7 +3,6 @@ package com.windrose.coliseum.ludicoliseum.data
 import android.content.Context
 import com.windrose.coliseum.dataparser.CharacterDataParserImpl
 import com.windrose.coliseum.dataparser.models.Role
-import java.util.Random
 import javax.inject.Inject
 
 //TODO : Context shouldn't be here

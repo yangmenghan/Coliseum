@@ -27,10 +27,10 @@ class CharacterDataParserImpl : CharacterDataParser {
         } else {
             Role(
                 id = index,
-                origin = fields[0],
                 name = fields[1],
-                universe = fields[2],
+                origin = fields[0],
                 author = fields[3],
+                universe = fields[2],
                 powerMultiplier = fields[4].toIntOrNull(),
                 tags = fields.subList(5, fields.size).map { Tag(it) }
             )

@@ -5,12 +5,12 @@ import com.windrose.coliseum.ludicoliseum.data.RoleRepository
 
 class RoleRepositoryTestImpl : RoleRepository {
     private val availableRoles = listOf(
-        Role("Carapuce", "Pokémon", id = 0),
-        Role("Salamèche", "Pokémon", id = 1),
-        Role("Bulbizarre", "Pokémon", id = 2),
-        Role("Pikachu", "Pokémon", id = 3),
-        Role("Goupix", "Pokémon", id = 4),
-        Role("Évoli", "Pokémon", id = 5)
+        Role(id = 0, name = "Carapuce", origin = "Pokémon"),
+        Role(id = 1, name = "Salamèche", origin = "Pokémon"),
+        Role(id = 2, name = "Bulbizarre", origin = "Pokémon"),
+        Role(id = 3, name = "Pikachu", origin = "Pokémon"),
+        Role(id = 4, name = "Goupix", origin = "Pokémon"),
+        Role(id = 5, name = "Évoli", origin = "Pokémon")
     )
 
     override fun getAvailableRolesIds(): List<Int> =

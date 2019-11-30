@@ -5,6 +5,7 @@ import com.windrose.coliseum.ludicoliseum.core.util.GetRandomElements
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.data.RoleRepository
 import com.windrose.coliseum.ludicoliseum.utils.RoleRepositoryTestImpl
+import com.windrose.coliseum.ludicoliseum.utils.TestGameGenerator
 import io.mockk.CapturingSlot
 import io.mockk.MockKAnnotations
 import io.mockk.every

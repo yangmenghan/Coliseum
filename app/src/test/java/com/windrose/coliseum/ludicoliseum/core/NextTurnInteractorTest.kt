@@ -2,6 +2,7 @@ package com.windrose.coliseum.ludicoliseum.core
 
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.entity.Game
+import com.windrose.coliseum.ludicoliseum.utils.TestGameGenerator
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK
