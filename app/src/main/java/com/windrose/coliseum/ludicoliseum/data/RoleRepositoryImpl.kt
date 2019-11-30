@@ -16,17 +16,13 @@ class RoleRepositoryImpl @Inject constructor(context: Context) : RoleRepository 
         return CharacterDataParserImpl().parseDataInputStream(stream)
     }
 
-    override fun getRandomRoles(rolesNumber: Int): List<Role> {
-        val indexSet = mutableSetOf<Int>()
-        val random = Random()
-        while (indexSet.size < rolesNumber) {
-            indexSet.add(random.nextInt(availableRoles.size))
-        }
-        return indexSet.map { availableRoles[it] }.toList()
-    }
 
-    override fun getAvailableRolesId(): List<Int> = availableRoles.map { it.id }
+    override fun getAvailableRolesIds(): List<Int> = availableRoles.map { it.id }
 
     override fun getRole(roleId: Int): Role? =
         availableRoles.find { it.id == roleId }
+
+    override fun getRoles(rolesIds: List<Int>): List<Role> =
+        // TODO : Handle null values here
+        rolesIds.mapNotNull { getRole(it) }
 }

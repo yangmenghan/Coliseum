@@ -16,7 +16,7 @@ class RoleReshuffleInteractor @Inject constructor(
         if (playerIndex < 0 || playerIndex > game.players.size) throw RuntimeException("Player index out of range")
 
         val currentRoles = game.players.map { it.role.id }
-        val rolesId = roleRepository.getAvailableRolesId()
+        val rolesId = roleRepository.getAvailableRolesIds()
 
         try {
             val newRoleId = getRandomElements.get(rolesId, currentRoles, 1)[0]
