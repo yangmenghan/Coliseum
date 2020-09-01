@@ -1,5 +1,6 @@
 package com.windrose.coliseum.ludicoliseum.view.end
 
+import com.windrose.coliseum.ludicoliseum.core.LoadWinnersInteractor
 import javax.inject.Inject
 
 class GameEndPresenter @Inject constructor(
@@ -9,6 +10,6 @@ class GameEndPresenter @Inject constructor(
 
     override fun start() {
         val winners = loadWinners.load()
-        view.setContent(winners)
+        view.setContent(winners.map { it.role.name })
     }
 }
