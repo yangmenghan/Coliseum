@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 class GamePresenter @Inject constructor(
     private val view: GameContract.View,
+    private val navigator: GameContract.Navigator,
     private val nextTurnInteractor: NextTurnInteractor,
     private val killPlayerInteractor: KillPlayerInteractor,
     private val roleReshuffleInteractor: RoleReshuffleInteractor,
@@ -25,7 +26,10 @@ class GamePresenter @Inject constructor(
 
     private fun refreshDisplay() {
         val game = gameRepository.getCurrentGame()
-        view.displayNewGame(mapper.map(game))
+        when (game.currentPlayer) {
+            Game.CURRENT_PLAYER_AT_GAME_END -> navigator.goGameEnd()
+            else -> view.displayNewGame(mapper.map(game))
+        }
     }
 
     override fun onNextTurn() {

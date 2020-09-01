@@ -13,5 +13,8 @@ abstract class GameModule {
     abstract fun bindsView(view: GameFragment): GameContract.View
 
     @Binds
+    abstract fun bindsNavigator(navigator: GameFragment): GameContract.Navigator
+
+    @Binds
     abstract fun bindsPresenter(presenter: GamePresenter): GameContract.Presenter
 }

@@ -14,4 +14,8 @@ interface GameContract {
         fun onCharacterAliveChanged(playerIndex: Int, isAlive: Boolean)
         fun onCharacterRoleRefresh(playerIndex: Int)
     }
+
+    interface Navigator {
+        fun goGameEnd()
+    }
 }

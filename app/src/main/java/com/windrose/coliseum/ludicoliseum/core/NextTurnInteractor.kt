@@ -14,6 +14,8 @@ class NextTurnInteractor @Inject constructor(private val gameRepository: GameRep
     }
 
     private fun getNextAlivePlayerIndex(game: Game): Int {
+        if (game.players.count { it.isAlive } <= 1) return Game.CURRENT_PLAYER_AT_GAME_END
+
         val offset = game.currentPlayer
         for (i in 1 until game.players.size) {
             val index = (offset + i) % game.players.size

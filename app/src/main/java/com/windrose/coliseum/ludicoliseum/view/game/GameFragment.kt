@@ -8,12 +8,15 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.windrose.coliseum.ludicoliseum.R
 import com.windrose.coliseum.ludicoliseum.R.layout
+import com.windrose.coliseum.ludicoliseum.databinding.FragmentGameEndBinding
+import com.windrose.coliseum.ludicoliseum.view.end.GameEndFragment
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerView
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerViewUiModel
+import com.windrose.coliseum.ludicoliseum.view.utils.routeToFragment
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class GameFragment : DaggerFragment(), GameContract.View, PlayerView.Listener {
+class GameFragment : DaggerFragment(), GameContract.View, GameContract.Navigator, PlayerView.Listener {
     @Inject
     lateinit var presenter: GameContract.Presenter
 
@@ -49,6 +52,8 @@ class GameFragment : DaggerFragment(), GameContract.View, PlayerView.Listener {
 
     override fun onRoleRefresh(model: PlayerViewUiModel) =
         presenter.onCharacterRoleRefresh(model.playerIndex)
+
+    override fun goGameEnd() = routeToFragment(GameEndFragment.newInstance())
 
     companion object {
         fun newInstance() = GameFragment()
