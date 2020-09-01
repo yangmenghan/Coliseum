@@ -21,7 +21,7 @@ class StartGameFragment : DaggerFragment(), StartGameContract.View {
     private lateinit var createGameButton: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_start_game, container, false).apply {
+        return inflater.inflate(R.layout.fragment_game_start, container, false).apply {
             playersNumberInput = findViewById(R.id.playersNumberInput)
             createGameButton = findViewById(R.id.createGameButton)
             createGameButton.setOnClickListener { presenter.onCreateGame(playersNumberInput.text.toString().toIntOrNull()) }
