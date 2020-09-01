@@ -7,6 +7,7 @@ import com.windrose.coliseum.ludicoliseum.data.RoleRepository
 import com.windrose.coliseum.ludicoliseum.data.RoleRepositoryImpl
 import com.windrose.coliseum.ludicoliseum.data.game.SimpleGameRepositoryImpl
 import com.windrose.coliseum.ludicoliseum.view.ColiseumApplication
+import com.windrose.coliseum.ludicoliseum.view.end.di.GameEndModule
 import com.windrose.coliseum.ludicoliseum.view.game.di.GameModule
 import com.windrose.coliseum.ludicoliseum.view.start.di.StartGameModule
 import dagger.Binds
@@ -23,6 +24,7 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         AppModule::class,
         StartGameModule::class,
+        GameEndModule::class,
         GameModule::class,
         ActivityBindingModule::class]
 )
