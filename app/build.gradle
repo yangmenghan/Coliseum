@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.devtools.ksp'
 
 android {
 
@@ -12,7 +13,7 @@ android {
   compileSdkVersion 32
   defaultConfig {
     applicationId "com.windrose.coliseum.ludicoliseum"
-    minSdkVersion 19
+    minSdkVersion 21
     targetSdkVersion 32
     versionCode 1
     versionName "1.0"
@@ -28,6 +29,13 @@ android {
   viewBinding {
     enabled = true
   }
+
+  // Enable koin annotations
+  applicationVariants.all { variant ->
+    variant.sourceSets.java.each {
+      it.srcDirs += "build/generated/ksp/${variant.name}/kotlin"
+    }
+  }
 }
 
 dependencies {
@@ -38,10 +46,15 @@ dependencies {
   implementation 'com.google.android.material:material:1.5.0'
 
   def koin_version= "3.2.0-beta-1"
+  def koin_ksp_version= "1.0.0-beta-1"
   implementation "io.insert-koin:koin-core:$koin_version"
   implementation "io.insert-koin:koin-android:$koin_version"
   implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
   implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+  implementation "io.insert-koin:koin-core:$koin_version"
+  implementation "io.insert-koin:koin-android:$koin_version"
+  implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
+  ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
 
   api 'com.google.dagger:dagger-android:2.41'
   api 'com.google.dagger:dagger-android-support:2.41'
