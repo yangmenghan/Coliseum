@@ -3,9 +3,10 @@ package com.windrose.coliseum.ludicoliseum.data.game
 import com.windrose.coliseum.dataparser.models.Role
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.entity.Game
-import javax.inject.Inject
+import org.koin.core.annotation.Single
 
-class SimpleGameRepositoryImpl @Inject constructor() : GameRepository {
+@Single
+class SimpleGameRepositoryImpl : GameRepository {
 
     // TODO : Use mutable model here
     private var game = Game(listOf())

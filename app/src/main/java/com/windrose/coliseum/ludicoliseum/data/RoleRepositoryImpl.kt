@@ -3,10 +3,11 @@ package com.windrose.coliseum.ludicoliseum.data
 import android.content.Context
 import com.windrose.coliseum.dataparser.CharacterDataParserImpl
 import com.windrose.coliseum.dataparser.models.Role
-import javax.inject.Inject
+import org.koin.core.annotation.Single
 
 //TODO : Context shouldn't be here
-class RoleRepositoryImpl @Inject constructor(context: Context) : RoleRepository {
+@Single
+class RoleRepositoryImpl(context: Context) : RoleRepository {
 
     private val availableRoles: List<Role> = loadRoles(context)
 
