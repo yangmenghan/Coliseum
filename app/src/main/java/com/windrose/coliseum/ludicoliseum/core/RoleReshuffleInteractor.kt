@@ -3,9 +3,10 @@ package com.windrose.coliseum.ludicoliseum.core
 import com.windrose.coliseum.ludicoliseum.core.util.GetRandomElements
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.data.RoleRepository
-import javax.inject.Inject
+import org.koin.core.annotation.Factory
 
-class RoleReshuffleInteractor @Inject constructor(
+@Factory
+class RoleReshuffleInteractor constructor(
     private val gameRepository: GameRepository,
     private val roleRepository: RoleRepository,
     private val getRandomElements: GetRandomElements

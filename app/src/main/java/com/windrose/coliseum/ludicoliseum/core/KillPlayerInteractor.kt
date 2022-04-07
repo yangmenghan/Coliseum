@@ -1,9 +1,10 @@
 package com.windrose.coliseum.ludicoliseum.core
 
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
-import javax.inject.Inject
+import org.koin.core.annotation.Factory
 
-class KillPlayerInteractor @Inject constructor(private val gameRepository: GameRepository) {
+@Factory
+class KillPlayerInteractor constructor(private val gameRepository: GameRepository) {
 
     fun kill(playerIndex: Int) {
         val game = gameRepository.getCurrentGame()

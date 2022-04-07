@@ -1,9 +1,10 @@
 package com.windrose.coliseum.ludicoliseum.core.util
 
+import org.koin.core.annotation.Factory
 import java.util.Random
-import javax.inject.Inject
 
-class GetRandomElements @Inject constructor() {
+@Factory
+class GetRandomElements {
 
     fun <T> get(elements: List<T>, elementsToExclude: List<T>, resultSize: Int): List<T> {
         checkArgumentValidity(elements, elementsToExclude, resultSize)

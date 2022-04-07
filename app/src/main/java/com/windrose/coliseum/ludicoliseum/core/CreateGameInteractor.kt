@@ -6,9 +6,10 @@ import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.data.RoleRepository
 import com.windrose.coliseum.ludicoliseum.entity.Game
 import com.windrose.coliseum.ludicoliseum.entity.Player
-import javax.inject.Inject
+import org.koin.core.annotation.Factory
 
-class CreateGameInteractor @Inject constructor(
+@Factory
+class CreateGameInteractor constructor(
     private val gameRepository: GameRepository,
     private val roleRepository: RoleRepository,
     private val getRandomElements: GetRandomElements

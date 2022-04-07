@@ -2,9 +2,10 @@ package com.windrose.coliseum.ludicoliseum.core
 
 import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.entity.Player
-import javax.inject.Inject
+import org.koin.core.annotation.Factory
 
-class LoadWinnersInteractor @Inject constructor(
+@Factory
+class LoadWinnersInteractor constructor(
     private val gameRepository: GameRepository
 ) {
 
