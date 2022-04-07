@@ -1,18 +1,8 @@
 package com.windrose.coliseum.ludicoliseum.view.start.di
 
-import com.windrose.coliseum.ludicoliseum.view.start.StartGameContract
-import com.windrose.coliseum.ludicoliseum.view.start.StartGameFragment
-import com.windrose.coliseum.ludicoliseum.view.start.StartGamePresenter
-import dagger.Binds
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
 
 @Module
-abstract class StartGameModule {
-
-    @Binds
-    abstract fun bindView(view: StartGameFragment): StartGameContract.View
-
-    @Binds
-    abstract fun bindPresenter(presenter: StartGamePresenter): StartGameContract.Presenter
-}
+@ComponentScan("com.windrose.coliseum.ludicoliseum.view.start")
+class StartGameModule

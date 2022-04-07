@@ -6,16 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import com.windrose.coliseum.ludicoliseum.R
 import com.windrose.coliseum.ludicoliseum.view.game.GameFragment
 import com.windrose.coliseum.ludicoliseum.view.utils.routeToFragment
-import dagger.android.support.DaggerFragment
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-class StartGameFragment : DaggerFragment(), StartGameContract.View {
 
-    @Inject
-    lateinit var presenter: StartGameContract.Presenter
+class StartGameFragment : Fragment(), StartGameContract.View {
+
+    private val presenter: StartGamePresenter by inject { parametersOf(this) }
 
     private lateinit var playersNumberInput: EditText
     private lateinit var createGameButton: Button

@@ -1,20 +1,9 @@
 package com.windrose.coliseum.ludicoliseum.view.game.di
 
-import com.windrose.coliseum.ludicoliseum.view.game.GameContract
-import com.windrose.coliseum.ludicoliseum.view.game.GameFragment
-import com.windrose.coliseum.ludicoliseum.view.game.GamePresenter
-import dagger.Binds
-import dagger.Module
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
 
 @Module
-abstract class GameModule {
+@ComponentScan("com.windrose.coliseum.ludicoliseum.view.game")
+class GameModule
 
-    @Binds
-    abstract fun bindsView(view: GameFragment): GameContract.View
-
-    @Binds
-    abstract fun bindsNavigator(navigator: GameFragment): GameContract.Navigator
-
-    @Binds
-    abstract fun bindsPresenter(presenter: GamePresenter): GameContract.Presenter
-}

@@ -5,20 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.windrose.coliseum.ludicoliseum.R
 import com.windrose.coliseum.ludicoliseum.R.layout
-import com.windrose.coliseum.ludicoliseum.databinding.FragmentGameEndBinding
 import com.windrose.coliseum.ludicoliseum.view.end.GameEndFragment
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerView
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerViewUiModel
 import com.windrose.coliseum.ludicoliseum.view.utils.routeToFragment
-import dagger.android.support.DaggerFragment
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-class GameFragment : DaggerFragment(), GameContract.View, GameContract.Navigator, PlayerView.Listener {
-    @Inject
-    lateinit var presenter: GameContract.Presenter
+class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, PlayerView.Listener {
+
+    private val presenter: GamePresenter by inject { parametersOf(this) }
 
     private lateinit var playersListView: RecyclerView
     private lateinit var nextTurnButton: Button

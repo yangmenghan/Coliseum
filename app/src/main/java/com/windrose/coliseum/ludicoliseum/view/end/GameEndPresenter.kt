@@ -1,14 +1,15 @@
 package com.windrose.coliseum.ludicoliseum.view.end
 
 import com.windrose.coliseum.ludicoliseum.core.LoadWinnersInteractor
-import javax.inject.Inject
+import org.koin.core.annotation.Factory
 
-class GameEndPresenter @Inject constructor(
+@Factory
+class GameEndPresenter constructor(
     private val view: GameEndContract.View,
     private val loadWinners: LoadWinnersInteractor
-) : GameEndContract.Presenter {
+) {
 
-    override fun start() {
+    fun start() {
         val winners = loadWinners.load()
         view.setContent(winners.map { it.role.name })
     }

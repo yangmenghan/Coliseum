@@ -7,8 +7,4 @@ interface StartGameContract {
         fun goToGame()
         fun showError(@StringRes errorTextId: Int)
     }
-
-    interface Presenter {
-        fun onCreateGame(playersNumber: Int?)
-    }
 }

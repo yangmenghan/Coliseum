@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.windrose.coliseum.ludicoliseum.R
 import com.windrose.coliseum.ludicoliseum.databinding.FragmentGameEndBinding
 import com.windrose.coliseum.ludicoliseum.view.start.StartGameFragment
 import com.windrose.coliseum.ludicoliseum.view.utils.routeToFragment
-import dagger.android.support.DaggerFragment
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-class GameEndFragment : DaggerFragment(), GameEndContract.View {
+class GameEndFragment : Fragment(), GameEndContract.View {
 
-    @Inject
-    lateinit var presenter: GameEndContract.Presenter
+    private val presenter: GameEndPresenter by inject { parametersOf(this) }
 
     private lateinit var binding: FragmentGameEndBinding
 

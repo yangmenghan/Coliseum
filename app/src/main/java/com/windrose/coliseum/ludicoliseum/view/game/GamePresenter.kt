@@ -8,9 +8,10 @@ import com.windrose.coliseum.ludicoliseum.data.GameRepository
 import com.windrose.coliseum.ludicoliseum.entity.Game
 import com.windrose.coliseum.ludicoliseum.entity.Player
 import com.windrose.coliseum.ludicoliseum.view.utils.PlayerViewUiModel
-import javax.inject.Inject
+import org.koin.core.annotation.Factory
 
-class GamePresenter @Inject constructor(
+@Factory
+class GamePresenter constructor(
     private val view: GameContract.View,
     private val navigator: GameContract.Navigator,
     private val nextTurnInteractor: NextTurnInteractor,
@@ -18,9 +19,9 @@ class GamePresenter @Inject constructor(
     private val roleReshuffleInteractor: RoleReshuffleInteractor,
     private val gameRepository: GameRepository,
     private val mapper: GameUiModelMapper
-) : GameContract.Presenter {
+) {
 
-    override fun start() {
+    fun start() {
         refreshDisplay()
     }
 
@@ -32,23 +33,24 @@ class GamePresenter @Inject constructor(
         }
     }
 
-    override fun onNextTurn() {
+    fun onNextTurn() {
         nextTurnInteractor.nextTurn()
         refreshDisplay()
     }
 
-    override fun onCharacterAliveChanged(playerIndex: Int, isAlive: Boolean) {
+    fun onCharacterAliveChanged(playerIndex: Int, isAlive: Boolean) {
         if (!isAlive) killPlayerInteractor.kill(playerIndex)
         refreshDisplay()
     }
 
-    override fun onCharacterRoleRefresh(playerIndex: Int) {
+    fun onCharacterRoleRefresh(playerIndex: Int) {
         roleReshuffleInteractor.reshuffle(playerIndex)
         refreshDisplay()
     }
 }
 
-class GameUiModelMapper @Inject constructor() {
+@Factory
+class GameUiModelMapper {
     fun map(game: Game): GameUiModel = GameUiModel(
         game.players.mapIndexed { i, it -> mapPlayer(i, it, game.currentPlayer) },
         game.currentPlayer
