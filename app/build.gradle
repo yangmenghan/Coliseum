@@ -1,14 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.devtools.ksp'
 
 android {
-
-  kapt {
-    generateStubs = true
-  }
 
   compileSdkVersion 32
   defaultConfig {
@@ -55,14 +50,6 @@ dependencies {
   implementation "io.insert-koin:koin-android:$koin_version"
   implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
   ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
-
-  api 'com.google.dagger:dagger-android:2.41'
-  api 'com.google.dagger:dagger-android-support:2.41'
-  api 'com.google.dagger:dagger:2.41'
-  annotationProcessor 'com.google.dagger:dagger-android-processor:2.41'
-  annotationProcessor 'com.google.dagger:dagger-compiler:2.41'
-  kapt 'com.google.dagger:dagger-android-processor:2.41'
-  kapt 'com.google.dagger:dagger-compiler:2.41'
 
   testImplementation 'junit:junit:4.13.2'
   testImplementation "io.mockk:mockk:1.10.2"
