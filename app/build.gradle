@@ -11,13 +11,29 @@ android {
     minSdkVersion 21
     targetSdkVersion 32
     versionCode 1
-    versionName "1.0"
+    versionName "0.0.1"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
-  buildTypes {
+
+  signingConfigs {
     release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      storeFile file("../release.keystore")
+      storePassword '4FangYouXiGongZuoShi!coliseum'
+      keyAlias 'release'
+      keyPassword '4FangYouXiGongZuoShi!coliseum'
+    }
+  }
+
+  buildTypes {
+    debug {
+      debuggable = true
+    }
+
+    release {
+      debuggable = false
+      minifyEnabled = false
+      proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+      signingConfig = signingConfigs.release
     }
   }
 
