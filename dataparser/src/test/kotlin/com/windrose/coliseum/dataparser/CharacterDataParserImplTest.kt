@@ -1,7 +1,7 @@
-package com.windrose.coliseum.dataparser
+package games.windrose.coliseum.dataparser
 
-import com.windrose.coliseum.dataparser.models.Role
-import com.windrose.coliseum.dataparser.models.Tag
+import games.windrose.coliseum.dataparser.models.Role
+import games.windrose.coliseum.dataparser.models.Tag
 import org.junit.Assert
 import org.junit.Test
 

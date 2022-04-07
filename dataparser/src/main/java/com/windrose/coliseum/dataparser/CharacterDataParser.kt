@@ -1,6 +1,6 @@
-package com.windrose.coliseum.dataparser
+package games.windrose.coliseum.dataparser
 
-import com.windrose.coliseum.dataparser.models.Role
+import games.windrose.coliseum.dataparser.models.Role
 import java.io.File
 import java.io.InputStream
 

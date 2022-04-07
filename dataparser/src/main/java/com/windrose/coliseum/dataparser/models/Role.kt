@@ -1,4 +1,4 @@
-package com.windrose.coliseum.dataparser.models
+package games.windrose.coliseum.dataparser.models
 
 data class Role(
     val id: Int,
