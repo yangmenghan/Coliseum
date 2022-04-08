@@ -19,12 +19,12 @@ class CreateGameInteractorTest {
     private lateinit var gameRepository: GameRepository
 
     private var roleRepository = RoleRepositoryTestImpl()
-    private lateinit var createGame: games.windrose.coliseum.core.CreateGameInteractor
+    private lateinit var createGame: CreateGameInteractor
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        createGame = games.windrose.coliseum.core.CreateGameInteractor(
+        createGame = CreateGameInteractor(
             gameRepository,
             roleRepository,
             GetRandomElements()

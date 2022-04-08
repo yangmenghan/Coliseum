@@ -7,7 +7,7 @@ import org.koin.core.annotation.Factory
 @Factory
 class StartGamePresenter(
         private val view: StartGameContract.View,
-        private val createGame: games.windrose.coliseum.core.CreateGameInteractor
+        private val createGame: CreateGameInteractor
 ) {
 
     fun onCreateGame(playersNumber: Int?) {
