@@ -24,15 +24,18 @@ workflows:
     - cache-push@2: {}
 app:
   envs:
-  - opts:
+  - PROJECT_LOCATION: .
+    opts:
       is_expand: false
-    PROJECT_LOCATION: .
-  - opts:
+  - MODULE: app
+    opts:
       is_expand: false
-    MODULE: app
-  - opts:
+  - VARIANT: ''
+    opts:
       is_expand: false
-    VARIANT: ''
+  - GRADLEW_PATH: "./gradlew"
+    opts:
+      is_expand: false
 meta:
   bitrise.io:
     stack: linux-docker-android-20.04
