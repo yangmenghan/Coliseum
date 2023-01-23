@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import games.windrose.coliseum.R
 import games.windrose.coliseum.view.end.GameEndFragment
-import games.windrose.coliseum.view.utils.PlayerView
-import games.windrose.coliseum.view.utils.PlayerViewUiModel
-import games.windrose.coliseum.view.utils.routeToFragment
+import games.windrose.coliseum.view.utils.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -30,6 +28,8 @@ class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, Play
                 setOnClickListener { presenter.onNextTurn() }
             }
             playersListView = findViewById(R.id.playersList)
+            MarginItemDecoration(verticalSpaceSize = 8.toPx())
+                .also {playersListView.addItemDecoration(it)}
             playersListView.adapter = playersAdapter
             presenter.start()
         }
