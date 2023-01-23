@@ -3,8 +3,9 @@
 
   <style name="BaseTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
     <item name="colorPrimary">@color/sunrise</item>
-    <item name="colorSecondary">@color/sunriseDark</item>
+    <item name="colorPrimaryDark">@color/sunriseDark</item>
     <item name="colorAccent">@color/latte</item>
+    <item name="android:textColorPrimary">@color/vampireGrey</item>
 
     <item name="android:fitsSystemWindows">false</item>
     <item name="android:windowTranslucentNavigation">true</item>
