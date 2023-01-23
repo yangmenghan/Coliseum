@@ -1,6 +1,7 @@
 package games.windrose.coliseum.view.utils
 
 import android.content.Context
+import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -38,19 +39,23 @@ class PlayerView @JvmOverloads constructor(
     fun showContent(model: PlayerViewUiModel) = with(model) {
         uiModel = this
         setCardBackgroundColor(resources.getColor(colorTheme.backgroundColor))
-        characterNameView.text = characterName
-        characterNameView.setTextColor(resources.getColor(colorTheme.textColor))
+        characterNameView.apply {
+            text = characterName
+            setTextColor(resources.getColor(colorTheme.textColor))
+            paintFlags = if (textStrikeThrough) paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            else paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
         characterOriginView.text = characterOrigin
         characterOriginView.setTextColor(resources.getColor(colorTheme.textColor))
         roleRefreshButton.apply {
             isVisible = isActionsVisible
             setOnClickListener { listener?.onRoleRefresh(uiModel) }
-            imageTintList =  resources.getColorStateList(colorTheme.iconColor)
+            imageTintList = resources.getColorStateList(colorTheme.iconColor)
         }
         killPlayerButton.apply {
             isVisible = isActionsVisible
             setOnClickListener { listener?.onKillPlayer(uiModel) }
-            imageTintList =  resources.getColorStateList(colorTheme.accentIconColor)
+            imageTintList = resources.getColorStateList(colorTheme.accentIconColor)
         }
     }
 
@@ -71,21 +76,23 @@ data class PlayerViewUiModel(
         @ColorRes val accentIconColor: Int,
         @ColorRes val menuIconColor: Int,
     ) {
-        class Default: ColorTheme(
+        class Default : ColorTheme(
             backgroundColor = R.color.snow,
             textColor = R.color.vampireGrey,
             iconColor = R.color.vampireGrey,
             accentIconColor = R.color.cornellRed,
             menuIconColor = R.color.vampireGrey,
         )
-        class Current: ColorTheme(
+
+        class Current : ColorTheme(
             backgroundColor = R.color.latte,
             textColor = R.color.snow,
             iconColor = R.color.sunriseDisabled,
             accentIconColor = R.color.sunriseDark,
             menuIconColor = R.color.snow,
         )
-        class Dead: ColorTheme(
+
+        class Dead : ColorTheme(
             backgroundColor = R.color.sunriseDisabled,
             textColor = R.color.sunriseDark,
             iconColor = R.color.vampireGrey,
