@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import games.windrose.coliseum.R
 import games.windrose.coliseum.view.end.GameEndFragment
 import games.windrose.coliseum.view.utils.PlayerView
@@ -20,13 +20,13 @@ class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, Play
     private val presenter: GamePresenter by inject { parametersOf(this) }
 
     private lateinit var playersListView: RecyclerView
-    private lateinit var nextTurnButton: Button
+    private lateinit var nextTurnButton: ExtendedFloatingActionButton
 
     private val playersAdapter = PlayersAdapter(this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_game, container, false).apply {
-            nextTurnButton = findViewById<Button>(R.id.nextTurnbutton).apply {
+            nextTurnButton = findViewById<ExtendedFloatingActionButton>(R.id.nextTurnButton).apply {
                 setOnClickListener { presenter.onNextTurn() }
             }
             playersListView = findViewById(R.id.playersList)
