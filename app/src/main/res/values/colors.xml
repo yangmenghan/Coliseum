@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="deadBackgroundColor">#777777</color>
-    <color name="highlightBackgroundcolor">#FDDDBA</color>
+    <color name="colorPrimary">@color/sunrise</color>
+    <color name="colorPrimaryDark">@color/sunriseDark</color>
+    <color name="colorAccent">@color/latte</color>
+    <color name="deadBackgroundColor">@color/sunriseDisabled</color>
+    <color name="highlightBackgroundcolor">@color/latte</color>
+
+    <!-- new colors   -->
+    <color name="sunrise">#FFC700</color>
+    <color name="sunriseDark">#FF9D2B</color>
+    <color name="sunriseDisabled">#FFEAD1</color>
+    <color name="latte">#94715E</color>
 </resources>
