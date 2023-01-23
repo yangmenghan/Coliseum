@@ -60,10 +60,15 @@ class GameUiModelMapper {
         playerIndex = index,
         characterName = player.role.name,
         characterOrigin = player.role.origin,
-        aliveText = getAliveText(player.isAlive),
-        isAlive = player.isAlive,
-        isHighLighted = currentPlayer == index
+        isActionsVisible = player.isAlive,
+        textStrikeThrough = !player.isAlive,
+        colorTheme = getColorTheme(index, player, currentPlayer)
     )
 
-    private fun getAliveText(alive: Boolean) = if (alive) R.string.game_player_alive else R.string.game_player_dead
+    private fun getColorTheme(index: Int, player: Player, currentPlayer: Int) = when {
+        !player.isAlive -> PlayerViewUiModel.ColorTheme.Dead()
+        currentPlayer == index -> PlayerViewUiModel.ColorTheme.Current()
+        else -> PlayerViewUiModel.ColorTheme.Default()
+    }
+
 }

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.annotation.StringRes
+import androidx.annotation.ColorRes
 import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
 import games.windrose.coliseum.R
@@ -37,32 +37,61 @@ class PlayerView @JvmOverloads constructor(
 
     fun showContent(model: PlayerViewUiModel) = with(model) {
         uiModel = this
+        setCardBackgroundColor(resources.getColor(colorTheme.backgroundColor))
         characterNameView.text = characterName
+        characterNameView.setTextColor(resources.getColor(colorTheme.textColor))
         characterOriginView.text = characterOrigin
-        setState(isAlive, isHighLighted)
-        roleRefreshButton.setOnClickListener { listener?.onRoleRefresh(uiModel) }
-        killPlayerButton.isVisible = isAlive
-        killPlayerButton.setOnClickListener {
-            listener?.onKillPlayer(uiModel)
+        characterOriginView.setTextColor(resources.getColor(colorTheme.textColor))
+        roleRefreshButton.apply {
+            isVisible = isActionsVisible
+            setOnClickListener { listener?.onRoleRefresh(uiModel) }
+            imageTintList =  resources.getColorStateList(colorTheme.iconColor)
+        }
+        killPlayerButton.apply {
+            isVisible = isActionsVisible
+            setOnClickListener { listener?.onKillPlayer(uiModel) }
+            imageTintList =  resources.getColorStateList(colorTheme.accentIconColor)
         }
     }
 
-    private fun setState(alive: Boolean, highLighted: Boolean) {
-        if (!alive) {
-            setCardBackgroundColor(resources.getColor(R.color.deadBackgroundColor))
-        } else if (highLighted) {
-            setCardBackgroundColor(resources.getColor(R.color.highlightBackgroundcolor))
-        } else {
-            setCardBackgroundColor(resources.getColor(android.R.color.white))
-        }
-    }
 }
 
 data class PlayerViewUiModel(
     val playerIndex: Int,
     val characterName: String,
     val characterOrigin: String?,
-    @StringRes val aliveText: Int,
-    val isAlive: Boolean = true,
-    val isHighLighted: Boolean
-)
+    val isActionsVisible: Boolean = true,
+    val textStrikeThrough: Boolean,
+    val colorTheme: ColorTheme,
+) {
+    sealed class ColorTheme(
+        @ColorRes val backgroundColor: Int,
+        @ColorRes val textColor: Int,
+        @ColorRes val iconColor: Int,
+        @ColorRes val accentIconColor: Int,
+        @ColorRes val menuIconColor: Int,
+    ) {
+        class Default: ColorTheme(
+            backgroundColor = R.color.snow,
+            textColor = R.color.vampireGrey,
+            iconColor = R.color.vampireGrey,
+            accentIconColor = R.color.cornellRed,
+            menuIconColor = R.color.vampireGrey,
+        )
+        class Current: ColorTheme(
+            backgroundColor = R.color.latte,
+            textColor = R.color.snow,
+            iconColor = R.color.sunriseDisabled,
+            accentIconColor = R.color.sunriseDark,
+            menuIconColor = R.color.snow,
+        )
+        class Dead: ColorTheme(
+            backgroundColor = R.color.sunriseDisabled,
+            textColor = R.color.sunriseDark,
+            iconColor = R.color.vampireGrey,
+            accentIconColor = R.color.cornellRed,
+            menuIconColor = R.color.vampireGrey,
+        )
+
+    }
+}
