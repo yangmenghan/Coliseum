@@ -8,14 +8,14 @@ import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import androidx.annotation.StringRes
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.cardview.widget.CardView
 import games.windrose.coliseum.R
 
 class PlayerView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyle: Int = 0
-) : ConstraintLayout(context, attr, defStyle) {
+) : CardView(context, attr, defStyle) {
 
     interface Listener {
         fun onAliveSwitchChange(isChecked: Boolean, model: PlayerViewUiModel)
@@ -25,6 +25,7 @@ class PlayerView @JvmOverloads constructor(
     init {
         View.inflate(context, R.layout.view_player, this)
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        radius = 6.toPx().toFloat()
     }
 
     private lateinit var uiModel: PlayerViewUiModel
@@ -48,11 +49,11 @@ class PlayerView @JvmOverloads constructor(
 
     private fun setState(alive: Boolean, highLighted: Boolean) {
         if (!alive) {
-            setBackgroundColor(resources.getColor(R.color.deadBackgroundColor))
+            setCardBackgroundColor(resources.getColor(R.color.deadBackgroundColor))
         } else if (highLighted) {
-            setBackgroundColor(resources.getColor(R.color.highlightBackgroundcolor))
+            setCardBackgroundColor(resources.getColor(R.color.highlightBackgroundcolor))
         } else {
-            setBackgroundColor(resources.getColor(android.R.color.white))
+            setCardBackgroundColor(resources.getColor(android.R.color.white))
         }
     }
 }
