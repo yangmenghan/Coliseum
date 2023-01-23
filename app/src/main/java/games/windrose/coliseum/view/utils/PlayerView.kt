@@ -28,7 +28,6 @@ class PlayerView @JvmOverloads constructor(
     }
 
     private lateinit var uiModel: PlayerViewUiModel
-    private val indexTextView: TextView = findViewById(R.id.index)
     private val characterNameView: TextView = findViewById(R.id.characterName)
     private val characterOriginView: TextView = findViewById(R.id.characterOrigin)
     private val roleRefreshButton: ImageView = findViewById(R.id.role_refresh)
@@ -37,7 +36,6 @@ class PlayerView @JvmOverloads constructor(
 
     fun showContent(model: PlayerViewUiModel) = with(model) {
         uiModel = this
-        indexTextView.text = "#${playerIndex + 1}"
         characterNameView.text = characterName
         characterOriginView.text = characterOrigin
         setState(isAlive, isHighLighted)
