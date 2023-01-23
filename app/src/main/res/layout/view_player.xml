@@ -43,29 +43,33 @@
       tools:text="@tools:sample/lorem"
       />
 
-  <Switch
-      android:id="@+id/aliveSwitch"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="20dp"
-      android:switchPadding="8dp"
-      app:layout_constraintBottom_toBottomOf="@+id/characterOrigin"
+  <ImageButton
+      android:id="@+id/kill_player"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="24dp"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      android:src="@drawable/ic_skull"
+      android:scaleType="fitCenter"
+      android:padding="8dp"
+      app:tint="@color/cornellRed"
+      app:layout_constraintBottom_toBottomOf="@+id/role_refresh"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/characterName"
-      tools:text="Alive"
+      app:layout_constraintTop_toTopOf="@+id/role_refresh"
       />
 
-  <ImageView
+  <ImageButton
       android:id="@+id/role_refresh"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="0dp"
-      android:layout_marginRight="0dp"
-      android:background="?selectableItemBackgroundBorderless"
-      android:padding="8dp"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="8dp"
+      android:background="?attr/selectableItemBackgroundBorderless"
       android:src="@drawable/ic_refresh"
+      android:scaleType="fitCenter"
+      android:padding="10dp"
+      app:tint="@color/vampireGrey"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/aliveSwitch"
+      app:layout_constraintEnd_toStartOf="@+id/kill_player"
       app:layout_constraintTop_toTopOf="parent"
       />
 

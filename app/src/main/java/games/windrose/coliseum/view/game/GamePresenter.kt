@@ -38,8 +38,8 @@ class GamePresenter constructor(
         refreshDisplay()
     }
 
-    fun onCharacterAliveChanged(playerIndex: Int, isAlive: Boolean) {
-        if (!isAlive) killPlayerInteractor.kill(playerIndex)
+    fun onCharacterAliveChanged(playerIndex: Int) {
+        killPlayerInteractor.kill(playerIndex)
         refreshDisplay()
     }
 

@@ -46,8 +46,8 @@ class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, Play
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onAliveSwitchChange(isChecked: Boolean, model: PlayerViewUiModel) =
-        presenter.onCharacterAliveChanged(model.playerIndex, isChecked)
+    override fun onKillPlayer(model: PlayerViewUiModel) =
+        presenter.onCharacterAliveChanged(model.playerIndex)
 
     override fun onRoleRefresh(model: PlayerViewUiModel) =
         presenter.onCharacterRoleRefresh(model.playerIndex)
