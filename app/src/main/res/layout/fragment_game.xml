@@ -29,7 +29,7 @@
         android:textColor="@color/snow"
         app:iconTint="@color/snow"
         app:backgroundTint="@color/latte"
-        app:icon="@android:drawable/ic_media_next"
+        app:icon="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
