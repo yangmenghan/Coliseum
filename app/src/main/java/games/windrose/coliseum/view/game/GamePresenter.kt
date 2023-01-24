@@ -53,8 +53,16 @@ class GamePresenter constructor(
 class GameUiModelMapper {
     fun map(game: Game): GameUiModel = GameUiModel(
         game.players.mapIndexed { i, it -> mapPlayer(i, it, game.currentPlayer) },
-        game.currentPlayer
+        game.currentPlayer,
+        getWinners(game)
     )
+
+    private fun getWinners(game: Game) =
+        if (game.currentPlayer == Game.CURRENT_PLAYER_AT_GAME_END) {
+            game.players.filter { it.isAlive }.map { it.role.name }
+        } else {
+            null
+        }
 
     private fun mapPlayer(index: Int, player: Player, currentPlayer: Int) = PlayerViewUiModel(
         playerIndex = index,
