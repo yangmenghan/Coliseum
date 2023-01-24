@@ -17,21 +17,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-    <Button
-        android:id="@+id/createGameButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_game_create"
-        android:backgroundTint="@color/brownish"
-        app:icon="@drawable/ic_start"
-        app:cornerRadius="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playersNumberInput"
-        app:layout_constraintVertical_bias="0.3"/>
-
     <EditText
         android:id="@+id/playersNumberInput"
         android:layout_width="wrap_content"
@@ -41,7 +26,9 @@
         android:textColorHint="@color/supernovaDisabled"
         android:textColor="@color/white"
         android:inputType="number"
+        android:imeOptions="actionDone"
         android:backgroundTint="@color/white"
+        android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -49,5 +36,17 @@
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageButton
+        android:id="@+id/createGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_start"
+        android:padding="8dp"
+        app:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/playersNumberInput"
+        app:layout_constraintTop_toTopOf="@id/playersNumberInput"
+        app:layout_constraintBottom_toBottomOf="@id/playersNumberInput"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
