@@ -2,8 +2,8 @@
 <resources>
 
   <style name="BaseTheme" parent="Theme.Material3.Light.NoActionBar">
-    <item name="colorPrimary">@color/sunrise</item>
-    <item name="colorPrimaryDark">@color/sunriseDark</item>
+    <item name="colorPrimary">@color/supernova</item>
+    <item name="colorPrimaryDark">@color/supernovaDark</item>
     <item name="colorAccent">@color/latte</item>
     <item name="android:textColorPrimary">@color/vampireGrey</item>
 

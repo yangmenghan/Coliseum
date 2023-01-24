@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="deadBackgroundColor">@color/sunriseDisabled</color>
+    <color name="deadBackgroundColor">@color/supernovaDisabled</color>
     <color name="highlightBackgroundcolor">@color/latte</color>
 
     <!-- new colors   -->
-    <color name="sunrise">#FFC700</color>
-    <color name="sunriseDark">#FF9D2B</color>
-    <color name="sunriseDisabled">#FFE4C3</color>
+    <color name="supernova">#FFC901</color>
+    <color name="supernovaDark">#FF9D2B</color>
+    <color name="supernovaDisabled">#FFE4C3</color>
     <color name="latte">#94715E</color>
     <color name="cornellRed">#B3261E</color>
     <color name="vampireGrey">#515151</color>

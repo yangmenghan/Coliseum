@@ -2,7 +2,7 @@
 <resources>
 
   <style name="Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
-    <item name="android:textColor">@color/sunriseDark</item>
+    <item name="android:textColor">@color/supernovaDark</item>
   </style>
 
 </resources>

@@ -87,14 +87,14 @@ data class PlayerViewUiModel(
         class Current : ColorTheme(
             backgroundColor = R.color.latte,
             textColor = R.color.white,
-            iconColor = R.color.sunriseDisabled,
-            accentIconColor = R.color.sunriseDark,
+            iconColor = R.color.supernovaDisabled,
+            accentIconColor = R.color.supernovaDark,
             menuIconColor = R.color.white,
         )
 
         class Dead : ColorTheme(
-            backgroundColor = R.color.sunriseDisabled,
-            textColor = R.color.sunriseDark,
+            backgroundColor = R.color.supernovaDisabled,
+            textColor = R.color.supernovaDark,
             iconColor = R.color.vampireGrey,
             accentIconColor = R.color.cornellRed,
             menuIconColor = R.color.vampireGrey,
