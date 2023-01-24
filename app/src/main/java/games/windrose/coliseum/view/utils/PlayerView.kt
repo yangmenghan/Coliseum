@@ -77,7 +77,7 @@ data class PlayerViewUiModel(
         @ColorRes val menuIconColor: Int,
     ) {
         class Default : ColorTheme(
-            backgroundColor = R.color.snow,
+            backgroundColor = R.color.white,
             textColor = R.color.vampireGrey,
             iconColor = R.color.vampireGrey,
             accentIconColor = R.color.cornellRed,
@@ -86,10 +86,10 @@ data class PlayerViewUiModel(
 
         class Current : ColorTheme(
             backgroundColor = R.color.latte,
-            textColor = R.color.snow,
+            textColor = R.color.white,
             iconColor = R.color.sunriseDisabled,
             accentIconColor = R.color.sunriseDark,
-            menuIconColor = R.color.snow,
+            menuIconColor = R.color.white,
         )
 
         class Dead : ColorTheme(
