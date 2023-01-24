@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="deadBackgroundColor">@color/supernovaDisabled</color>
-    <color name="highlightBackgroundcolor">@color/brownish</color>
+    <color name="highlightBackgroundColor">@color/brownish</color>
 
     <!-- new colors   -->
     <color name="supernova">#FFC901</color>
