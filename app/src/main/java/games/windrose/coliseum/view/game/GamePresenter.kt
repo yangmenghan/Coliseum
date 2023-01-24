@@ -1,6 +1,5 @@
 package games.windrose.coliseum.view.game
 
-import games.windrose.coliseum.R
 import games.windrose.coliseum.core.KillPlayerInteractor
 import games.windrose.coliseum.core.NextTurnInteractor
 import games.windrose.coliseum.core.RoleReshuffleInteractor
@@ -13,7 +12,6 @@ import org.koin.core.annotation.Factory
 @Factory
 class GamePresenter constructor(
     private val view: GameContract.View,
-    private val navigator: GameContract.Navigator,
     private val nextTurnInteractor: NextTurnInteractor,
     private val killPlayerInteractor: KillPlayerInteractor,
     private val roleReshuffleInteractor: RoleReshuffleInteractor,
@@ -27,10 +25,7 @@ class GamePresenter constructor(
 
     private fun refreshDisplay() {
         val game = gameRepository.getCurrentGame()
-        when (game.currentPlayer) {
-            Game.CURRENT_PLAYER_AT_GAME_END -> navigator.goGameEnd()
-            else -> view.displayNewGame(mapper.map(game))
-        }
+        view.displayNewGame(mapper.map(game))
     }
 
     fun onNextTurn() {

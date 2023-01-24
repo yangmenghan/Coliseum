@@ -9,13 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import games.windrose.coliseum.R
-import games.windrose.coliseum.view.end.GameEndFragment
 import games.windrose.coliseum.view.start.StartGameFragment
 import games.windrose.coliseum.view.utils.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, PlayerView.Listener {
+class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
 
     private val presenter: GamePresenter by inject { parametersOf(this) }
 
@@ -66,8 +65,6 @@ class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, Play
                 .show()
         }
     }
-
-    override fun goGameEnd() = routeToFragment(GameEndFragment.newInstance())
 
     companion object {
         fun newInstance() = GameFragment()
