@@ -8,6 +8,7 @@ import kotlin.properties.Delegates
 
 class PlayersAdapter(private val listener: PlayerView.Listener) : RecyclerView.Adapter<PlayerViewHolder>() {
 
+    // TODO: Improve perf
     var players: List<PlayerViewUiModel> by Delegates.observable(listOf()) { _, _, _ -> notifyDataSetChanged() }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PlayerViewHolder(PlayerView(parent.context))
