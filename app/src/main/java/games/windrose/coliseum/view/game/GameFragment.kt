@@ -1,5 +1,6 @@
 package games.windrose.coliseum.view.game
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import games.windrose.coliseum.R
 import games.windrose.coliseum.view.start.StartGameFragment
 import games.windrose.coliseum.view.utils.*
@@ -20,6 +22,7 @@ class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
 
     private lateinit var playersListView: RecyclerView
     private lateinit var nextTurnButton: ExtendedFloatingActionButton
+    private lateinit var restartButton: FloatingActionButton
 
     private val playersAdapter = PlayersAdapter(this)
 
@@ -28,12 +31,28 @@ class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
             nextTurnButton = findViewById<ExtendedFloatingActionButton>(R.id.nextTurnButton).apply {
                 setOnClickListener { presenter.onNextTurn() }
             }
+            restartButton = findViewById<FloatingActionButton>(R.id.restartButton).apply {
+                setOnClickListener {
+                    context?.let { showConfirmRestartDialog(it) }
+                }
+            }
             playersListView = findViewById(R.id.playersList)
             MarginItemDecoration(verticalSpaceSize = 8.toPx())
                 .also {playersListView.addItemDecoration(it)}
             playersListView.adapter = playersAdapter
             presenter.start()
         }
+    }
+
+    private fun FloatingActionButton.showConfirmRestartDialog(context: Context) {
+        MaterialAlertDialogBuilder(context)
+            .setTitle(resources.getString(R.string.game_restart_confirm_title))
+            .setMessage(resources.getString(R.string.game_restart_confirm_message))
+            .setPositiveButton(resources.getString(android.R.string.ok)) { _, _ ->
+                routeToFragment(StartGameFragment.newInstance())
+            }
+            .setNegativeButton(resources.getString(android.R.string.cancel)) { _, _ -> }
+            .show()
     }
 
     override fun displayNewGame(model: GameUiModel) {

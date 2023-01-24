@@ -7,6 +7,8 @@
   <string name="game_next_turn">Next Turn</string>
   <string name="game_player_alive">Alive</string>
   <string name="game_player_dead">Dead</string>
+  <string name="game_restart_confirm_title">Exit</string>
+  <string name="game_restart_confirm_message">Abandon the current game and start a new one?</string>
   <string name="game_finished">Game finished</string>
   <plurals name="survivors">
     <item quantity="one">The last survivor is : %s</item>
