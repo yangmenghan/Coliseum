@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import games.windrose.coliseum.R
 import games.windrose.coliseum.view.end.GameEndFragment
+import games.windrose.coliseum.view.start.StartGameFragment
 import games.windrose.coliseum.view.utils.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -40,6 +42,7 @@ class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, Play
         playersListView.post {
             playersAdapter.players = model.players
         }
+        model.winners?.let { showGameEnd(it) }
     }
 
     override fun showError(errorTextId: Int) {
@@ -51,6 +54,18 @@ class GameFragment : Fragment(), GameContract.View, GameContract.Navigator, Play
 
     override fun onRoleRefresh(model: PlayerViewUiModel) =
         presenter.onCharacterRoleRefresh(model.playerIndex)
+
+    private fun showGameEnd(winners: List<String>) {
+        context?.let { context ->
+            MaterialAlertDialogBuilder(context)
+                .setTitle(resources.getString(R.string.game_finished))
+                .setMessage(resources.getQuantityString(R.plurals.survivors, winners.size, winners))
+                .setPositiveButton(resources.getString(R.string.restart_game)) { _, _ ->
+                    routeToFragment(StartGameFragment.newInstance())
+                }
+                .show()
+        }
+    }
 
     override fun goGameEnd() = routeToFragment(GameEndFragment.newInstance())
 

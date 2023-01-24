@@ -7,9 +7,10 @@
   <string name="game_next_turn">Next Turn</string>
   <string name="game_player_alive">Alive</string>
   <string name="game_player_dead">Dead</string>
-  <plurals name="game_over">
-    <item quantity="one">Game Over\n The last survivor is : %s</item>
-    <item quantity="other">Game Over\n The last survivors are : %s</item>
+  <string name="game_finished">Game finished</string>
+  <plurals name="survivors">
+    <item quantity="one">The last survivor is : %s</item>
+    <item quantity="other">The last survivors are : %s</item>
   </plurals>
   <string name="restart_game">Restart Game</string>
   <string name="game_over">Start Game</string>

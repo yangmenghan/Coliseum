@@ -4,5 +4,6 @@ import games.windrose.coliseum.view.utils.PlayerViewUiModel
 
 data class GameUiModel(
         val players: List<PlayerViewUiModel>,
-        val currentPlayer: Int
+        val currentPlayer: Int,
+        val winners: List<String>? = null
 )
