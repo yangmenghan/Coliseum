@@ -37,7 +37,7 @@ class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
     }
 
     override fun displayNewGame(model: GameUiModel) {
-        playersListView.scrollToPosition(model.currentPlayer)
+        if (model.shouldScrollToCurrent) playersListView.scrollToPosition(model.currentPlayer)
         playersListView.post {
             playersAdapter.players = model.players
         }

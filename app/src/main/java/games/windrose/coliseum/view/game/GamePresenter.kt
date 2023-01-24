@@ -23,14 +23,14 @@ class GamePresenter constructor(
         refreshDisplay()
     }
 
-    private fun refreshDisplay() {
+    private fun refreshDisplay(shouldScrollToCurrent: Boolean = false) {
         val game = gameRepository.getCurrentGame()
-        view.displayNewGame(mapper.map(game))
+        view.displayNewGame(mapper.map(game, shouldScrollToCurrent))
     }
 
     fun onNextTurn() {
         nextTurnInteractor.nextTurn()
-        refreshDisplay()
+        refreshDisplay(true)
     }
 
     fun onCharacterAliveChanged(playerIndex: Int) {
@@ -46,9 +46,10 @@ class GamePresenter constructor(
 
 @Factory
 class GameUiModelMapper {
-    fun map(game: Game): GameUiModel = GameUiModel(
+    fun map(game: Game, shouldScrollToCurrent: Boolean): GameUiModel = GameUiModel(
         game.players.mapIndexed { i, it -> mapPlayer(i, it, game.currentPlayer) },
         game.currentPlayer,
+        shouldScrollToCurrent,
         getWinners(game)
     )
 
