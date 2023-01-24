@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <style name="BaseTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-    <item name="colorPrimary">@color/sunrise</item>
-    <item name="colorPrimaryDark">@color/sunriseDark</item>
-    <item name="colorAccent">@color/latte</item>
-    <item name="android:textColorPrimary">@color/vampireGrey</item>
-
-    <item name="android:fitsSystemWindows">false</item>
-    <item name="android:windowTranslucentNavigation">true</item>
-    <item name="android:statusBarColor">@android:color/transparent</item>
-  </style>
-
-  <style name="AppTheme" parent="BaseTheme">
+  <style name="Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+    <item name="android:textColor">@color/sunriseDark</item>
   </style>
 
 </resources>
