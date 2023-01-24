@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="deadBackgroundColor">@color/supernovaDisabled</color>
-    <color name="highlightBackgroundcolor">@color/latte</color>
+    <color name="highlightBackgroundcolor">@color/brownish</color>
 
     <!-- new colors   -->
     <color name="supernova">#FFC901</color>
     <color name="supernovaDark">#FF9D2B</color>
     <color name="supernovaDisabled">#FFE4C3</color>
-    <color name="latte">#94715E</color>
+    <color name="brownish">#9B6C57</color>
     <color name="cornellRed">#B3261E</color>
     <color name="vampireGrey">#515151</color>
     <color name="white">#FFFFFF</color>

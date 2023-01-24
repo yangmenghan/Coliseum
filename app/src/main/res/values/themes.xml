@@ -4,7 +4,7 @@
   <style name="BaseTheme" parent="Theme.Material3.Light.NoActionBar">
     <item name="colorPrimary">@color/supernova</item>
     <item name="colorPrimaryDark">@color/supernovaDark</item>
-    <item name="colorAccent">@color/latte</item>
+    <item name="colorAccent">@color/brownish</item>
     <item name="android:textColorPrimary">@color/vampireGrey</item>
 
     <item name="android:fitsSystemWindows">false</item>

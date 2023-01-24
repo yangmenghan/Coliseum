@@ -85,7 +85,7 @@ data class PlayerViewUiModel(
         )
 
         class Current : ColorTheme(
-            backgroundColor = R.color.latte,
+            backgroundColor = R.color.brownish,
             textColor = R.color.white,
             iconColor = R.color.supernovaDisabled,
             accentIconColor = R.color.supernovaDark,
