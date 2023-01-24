@@ -44,7 +44,7 @@ class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
         }
     }
 
-    private fun FloatingActionButton.showConfirmRestartDialog(context: Context) {
+    private fun showConfirmRestartDialog(context: Context) {
         MaterialAlertDialogBuilder(context)
             .setTitle(resources.getString(R.string.game_restart_confirm_title))
             .setMessage(resources.getString(R.string.game_restart_confirm_message))

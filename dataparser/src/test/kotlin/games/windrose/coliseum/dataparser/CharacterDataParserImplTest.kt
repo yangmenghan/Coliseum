@@ -12,9 +12,9 @@ class CharacterDataParserImplTest {
     @Test
     fun parseSimpleLine() {
         val line = "13;Riburn Alquin;Bottero;Ewilan;Ewilan!;1;Fantasy;Inconnu;Troll"
-        val character = dataParser.parseLine(line) as Role
+        val character = dataParser.parseLine(line, 0) as Role
 
-        Assert.assertEquals(13, character.index)
+
         Assert.assertEquals(1, character.powerMultiplier)
         Assert.assertEquals("Riburn Alquin", character.name)
         Assert.assertEquals("Bottero", character.author)
@@ -28,6 +28,6 @@ class CharacterDataParserImplTest {
     @Test
     fun parseWrongLine() {
         val line = "13;Riburn Alquin;"
-        Assert.assertNull(dataParser.parseLine(line))
+        Assert.assertNull(dataParser.parseLine(line, 0))
     }
 }

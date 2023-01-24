@@ -20,27 +20,27 @@ class GamePresenter constructor(
 ) {
 
     fun start() {
-        refreshDisplay()
+        refreshDisplay(shouldScrollToCurrent = true)
     }
 
-    private fun refreshDisplay(shouldScrollToCurrent: Boolean = false) {
+    private fun refreshDisplay(shouldScrollToCurrent: Boolean) {
         val game = gameRepository.getCurrentGame()
         view.displayNewGame(mapper.map(game, shouldScrollToCurrent))
     }
 
     fun onNextTurn() {
         nextTurnInteractor.nextTurn()
-        refreshDisplay(true)
+        refreshDisplay(shouldScrollToCurrent = true)
     }
 
     fun onCharacterAliveChanged(playerIndex: Int) {
         killPlayerInteractor.kill(playerIndex)
-        refreshDisplay()
+        refreshDisplay(shouldScrollToCurrent = false)
     }
 
     fun onCharacterRoleRefresh(playerIndex: Int) {
         roleReshuffleInteractor.reshuffle(playerIndex)
-        refreshDisplay()
+        refreshDisplay( shouldScrollToCurrent = false)
     }
 }
 
