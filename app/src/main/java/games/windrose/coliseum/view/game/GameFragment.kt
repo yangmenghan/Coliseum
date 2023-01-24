@@ -62,6 +62,7 @@ class GameFragment : Fragment(), GameContract.View, PlayerView.Listener {
                 .setPositiveButton(resources.getString(R.string.restart_game)) { _, _ ->
                     routeToFragment(StartGameFragment.newInstance())
                 }
+                .setCancelable(false)
                 .show()
         }
     }
