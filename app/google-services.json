@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1079963159314",
+    "project_id": "coliseum-346611",
+    "storage_bucket": "coliseum-346611.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079963159314:android:1a743773d81aca82fb41cb",
+        "android_client_info": {
+          "package_name": "games.windrose.coliseum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079963159314-nmphneg3pes5ciesrpj3rbn0upam8nhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBncPitOkn_yoAg-lRKuZpkqDT72M3z5mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079963159314-nmphneg3pes5ciesrpj3rbn0upam8nhf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
