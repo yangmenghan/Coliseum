@@ -5,6 +5,7 @@ import games.windrose.coliseum.core.di.CoreModule
 import games.windrose.coliseum.data.di.DataModule
 import games.windrose.coliseum.view.game.di.GameModule
 import games.windrose.coliseum.view.start.di.StartGameModule
+import games.windrose.coliseum.view.utils.UtilModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -22,6 +23,7 @@ class ColiseumApplication : Application() {
                 DataModule().module,
                 GameModule().module,
                 StartGameModule().module,
+                UtilModule().module,
             )
         }
     }
