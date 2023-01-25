@@ -33,6 +33,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079963159314:android:925fbe670103f6b6fb41cb",
+        "android_client_info": {
+          "package_name": "games.windrose.coliseum.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079963159314-nmphneg3pes5ciesrpj3rbn0upam8nhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBncPitOkn_yoAg-lRKuZpkqDT72M3z5mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079963159314-nmphneg3pes5ciesrpj3rbn0upam8nhf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
